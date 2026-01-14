@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:student_portal_frontend/screens/add_student_screen.dart';
+import 'package:student_portal_frontend/screens/edit_student_screen.dart';
 import 'package:student_portal_frontend/screens/home_screen.dart';
 
 void main() {
@@ -15,6 +17,11 @@ class StudentPortalApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: _buildAppTheme(),
       home: const StudentPortalHome(),
+      routes: {
+        '/add-student': (context) => const AddStudentScreen(),
+        // '/edit-student': (context) => const EditStudentScreen(),
+      },
+      initialRoute: '/',
     );
   }
 

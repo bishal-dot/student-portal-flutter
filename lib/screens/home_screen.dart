@@ -14,7 +14,7 @@ class StudentPortalHome extends StatelessWidget {
             _buildWelcomeHeader(),
             _buildStatsSection(),
             _buildRecentStudents(),
-            _buildQuickActions(),
+            _buildQuickActions(context),
           ],
         ),
       ),
@@ -90,7 +90,6 @@ class StudentPortalHome extends StatelessWidget {
     );
   }
 
-  // ================= RECENT STUDENTS =================
   Widget _buildRecentStudents() {
     final students = [
       {
@@ -141,12 +140,18 @@ class StudentPortalHome extends StatelessWidget {
   }
 
   // ================= QUICK ACTIONS =================
-  Widget _buildQuickActions() {
+  Widget _buildQuickActions(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Row(
         children: [
-          _actionButton(icon: Icons.person_add, label: 'Add', onTap: () {}),
+          _actionButton(
+            icon: Icons.person_add,
+            label: 'Add',
+            onTap: () {
+              Navigator.pushNamed(context, '/add-student');
+            },
+          ),
           const SizedBox(width: 12),
           _actionButton(icon: Icons.list, label: 'View All', onTap: () {}),
           const SizedBox(width: 12),
